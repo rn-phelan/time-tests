@@ -31,8 +31,11 @@ def test_touching_times():
 
 
 def test_backwards_time():
+    """This is an example of a negative test case. It is checking that specific input will return an error. 
+    It passes if it errors
+    Also chekc it matches the specific error message"""
     start = "2010-01-12 12:00:00"
     end = "2010-01-12 10:00:00"
-    with raises(ValueError):      # Ensure that the ValueError is raised
+    with raises(ValueError, match="Start time is later than end time"):      # Ensure that the ValueError is raised
         time_range(start, end)
     
